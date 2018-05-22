@@ -12,7 +12,17 @@ buildscript {
 
 android {
     compileSdkVersion 27
+    flavorDimensions "default"
 
+    productFlavors {
+        free {
+            applicationId "com.udacity.gradle.builditbigger.free"
+        }
+
+        paid {
+            applicationId "com.udacity.gradle.builditbigger.paid"
+        }
+    }
 
     defaultConfig {
         applicationId "com.udacity.gradle.builditbigger"
@@ -39,6 +49,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support:design:27.1.1'
     endpointsServer project(path: ':backend', configuration: 'endpoints')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation "com.android.support:customtabs:27.1.1"

@@ -1,12 +1,6 @@
-
-import android.support.test.runner.AndroidJUnit4;
-import android.test.AndroidTestCase;
-
-import com.udacity.gradle.builditbigger.EndpointAsyncTask;
 import com.udacity.gradle.builditbigger.OnJokeRetrieve;
-import org.junit.Assert;
+
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
