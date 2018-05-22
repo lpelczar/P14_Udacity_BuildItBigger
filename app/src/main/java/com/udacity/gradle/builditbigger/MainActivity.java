@@ -11,7 +11,7 @@ import com.example.androidjoke.JokeActivity;
 import com.example.jokes.JokesProvider;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnJokeRetrieve {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +43,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        new EndpointAsyncTask().execute(this);
+        new EndpointAsyncTask(this).execute();
+    }
 
-//        Intent intent = new Intent(this, JokeActivity.class);
-//        JokesProvider jokesProvider = new JokesProvider();
-//        String joke = jokesProvider.getJoke();
-//        intent.putExtra(JokeActivity.JOKE_KEY, joke);
-//        startActivity(intent);
+    @Override
+    public void onJokeRetrieve(String joke) {
+        Intent intent = new Intent(this, JokeActivity.class);
+        intent.putExtra(JokeActivity.JOKE_KEY, joke);
+        startActivity(intent);
     }
 }
