@@ -24,10 +24,12 @@ public class JokeActivityFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_joke, container, false);
 
         Intent intent = Objects.requireNonNull(getActivity()).getIntent();
-        String joke = intent.getStringExtra(JokeActivity.JOKE_KEY);
-        TextView jokeTextView = view.findViewById(R.id.joke);
-        if (joke != null && joke.length() != 0) {
-            jokeTextView.setText(joke);
+        if (intent != null) {
+            String joke = intent.getStringExtra(JokeActivity.JOKE_KEY);
+            TextView jokeTextView = view.findViewById(R.id.joke);
+            if (joke != null && joke.length() != 0) {
+                jokeTextView.setText(joke);
+            }
         }
         return view;
     }
